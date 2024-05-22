@@ -201,8 +201,46 @@ Beispiele für den `params` Parameter:
 { 'base': 2, 'height': 1 }
 
 '''
-def area (shape, params):
-    '''
+import math
+
+def area(form, parameter):
+    if form == "circle":
+        radius = parameter.get("radius")
+        if radius is not None:
+            return math.pi * radius**2
+        else:
+            return "Radius fehlt"
+    elif form == "triangle":
+        base = parameter.get("base")
+        height = parameter.get("height")
+        if base is not None and height is not None:
+            return 0.5 * base * height
+        else:
+            return "Grundseite oder Höhe fehlt"
+    elif form == "rectangle":
+        base = parameter.get("base")
+        height = parameter.get("height")
+        if base is not None and height is not None:
+            return base * height
+        else:
+            return "Grundseite oder Höhe fehlt"
+    else:
+        return "Unbekannte Form"
+
+
+parameter_circle = {"radius": 1.0}
+parameter_triangle = {"base": 12, "height": 14}
+parameter_rectangle = {"base": 8, "height": 4}
+
+flaecheninhalt_circle = area("circle", parameter_circle)
+flaecheninhalt_triangle = area("triangle", parameter_triangle)
+flaecheninhalt_rectangle = area("rectangle", parameter_rectangle)
+
+print(f"Flächeninhalt des Kreises: {flaecheninhalt_circle:.2f}")
+print(f"Flächeninhalt des Dreiecks: {flaecheninhalt_triangle:.2f}")
+print(f"Flächeninhalt des Rechtecks: {flaecheninhalt_rectangle:.2f}")
+
+'''
     :param shape: Shape
     :type shape: string
     :param params: Parameters of the shape
@@ -211,8 +249,8 @@ def area (shape, params):
     :return: Area of the shape
     :rtype: float
     '''
-    import math
-    pass
+   
+    
 
 # loops
 
@@ -223,8 +261,23 @@ erzeugt.
 Die Karten werden als Tupel bestehend aus Farbe und Wert dargestellt und alle
 Karten in einer Liste gesammelt zurückgegeben.
 '''
+# def deckOfCards():
+#     pass
+
 def deckOfCards():
-    pass
+    farben = ["Clubs", "Spades", "Hearts", "Diamonds"]
+    werte = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    
+    kartenspiel = [(farbe, wert) for farbe in farben for wert in werte]
+    return kartenspiel
+
+# Beispielhafte Nutzung der Funktion
+kartenspiel = deckOfCards()
+
+# Ausgabe der Karten
+for karte in kartenspiel:
+    print(karte)
+
 
 '''
 Schreibe eine Funktion, die die ersten N Antworten für das FizzBuzz-Spiel
@@ -233,7 +286,19 @@ erzeugt und auf der Konsole ausgibt.
 Siehe auch https://de.wikipedia.org/wiki/Fizz_buzz
 '''
 def fizzbuzz(n):
-    pass
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        elif i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0:
+            print("Buzz")
+        else:
+            print(i)
+
+# Aufruf  der Funktion
+fizzbuzz(23)
+    
 
 # recursion
 
