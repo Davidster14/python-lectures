@@ -1,6 +1,8 @@
 import math
 import unittest
 
+from unittest.mock import call, patch
+
 from exercises.basics import *
 
 class TestBasics(unittest.TestCase):
@@ -45,40 +47,31 @@ class TestBasics(unittest.TestCase):
     def test_area_of_rectangle(self):
         self.assertEqual(area('rectangle', { 'base': 2, 'height': 1.8 }), 3.6)
 
-    def test_fizzbuzz(self):
-        '''
-        test('FizzBuzz', () => {
-            const consoleMock = vi.spyOn(console, 'log').mockImplementation(() => undefined)
-            
-            afterAll(consoleMock.mockReset)
-
-            fizzbuzz(10)
-
-            expect(consoleMock).toHaveBeenCalledWith(1)
-            expect(consoleMock).toHaveBeenCalledWith(2)
-            expect(consoleMock).toHaveBeenCalledWith('fizz')
-            expect(consoleMock).toHaveBeenCalledWith(4)
-            expect(consoleMock).toHaveBeenCalledWith('buzz')
-            expect(consoleMock).toHaveBeenCalledWith('fizz')
-            expect(consoleMock).toHaveBeenCalledWith(7)
-            expect(consoleMock).toHaveBeenCalledWith(8)
-            expect(consoleMock).toHaveBeenCalledWith('fizz')
-            expect(consoleMock).toHaveBeenCalledWith('buzz')
-        })
-        '''
-        self.fail('Test not implemented, yet.')
+    @patch('builtins.print')
+    def test_fizzbuzz(self, mock_print):
+        fizzbuzz(10)
+        mock_print.assert_has_calls([
+            call(1),
+            call(2),
+            call('fizz'),
+            call(4),
+            call('buzz'),
+            call('fizz'),
+            call(7),
+            call(8),
+            call('fizz'),
+            call('buzz')
+            ])
 
     def test_fibonacci(self):
-        '''
-        test('Fibonacci sequence', () => {
-            expect(fibonacci(0)).toBe(0)
-            expect(fibonacci(1)).toBe(1)
-            expect(fibonacci(2)).toBe(1)
-            expect(fibonacci(3)).toBe(2)
-            expect(fibonacci(4)).toBe(3)
-            expect(fibonacci(5)).toBe(5)
-            expect(fibonacci(10)).toBe(55)
-            expect(fibonacci(15)).toBe(610)
-        })
-        '''
-        self.fail('Test not implemented, yet.')
+        for n, m in [
+            (0, 0),
+            (1, 1),
+            (2, 1),
+            (3, 2),
+            (4, 3),
+            (5, 5),
+            (10, 55),
+            (15, 610)
+        ]:
+            self.assertEqual(fibonacci(n), m)
