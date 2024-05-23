@@ -2,16 +2,32 @@ SUITS = { 'CLUBS', 'HEARTS', 'SPADES', 'DIAMONDS' }
 RANKS = [ 'ACE', 'KING', 'QUEEN', 'JACK', 'TEN',
          'NINE', 'EIGHT', 'SEVEN', 'SIX', 'FIVE', 'FOUR', 'THREE', 'TWO' ]
 
-def deck() -> list[tuple]:
-    '''Create a deck of cards.
+'''TASK = Create a deck of cards.
     Each card is a tuple of suit and rank.
     '''
+
+def deck():  #-> list[tuple]:
+    suits = ['CLUBS', 'HEARTS', 'SPADES', 'DIAMONDS']
+    ranks = ['ACE', 'KING', 'QUEEN', 'JACK', 'TEN',
+         'NINE', 'EIGHT', 'SEVEN', 'SIX', 'FIVE', 'FOUR', 'THREE', 'TWO'] 
+    
+    deck =[(suit, rank) for suit in suits for rank in ranks]
+    return deck
+
+# Funktionsaufruf
+
+deck_of_cards = deck()
+for card in deck_of_cards:
+    print(card)
+
     pass
 
-def split(deck, pos: int) -> tuple[list, list]:
+
     ''''Split a deck of cards at a given position.
     Return a tuple containing first and second part of the deck.
     '''
+def split(deck, pos: int): #-> tuple[list, list]:
+
     pass
 
 def peek(deck: list[tuple]) -> tuple:
