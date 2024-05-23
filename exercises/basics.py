@@ -308,10 +308,15 @@ Schreibe eine rekursive Funktion, die die N-te Fibonacci-Zahl berechnet.
 Siehe auch https://de.wikipedia.org/wiki/Fibonacci-Folge
 '''
 def fibonacci(n):
+    if n <= 0:
+        raise ValueError("bitte eine positive ganze Zahl eingeben.")
+    #elif n == 
+
     '''
     :type n: int
     
     :return: n-th Fibonacci number
     :rtype: int
     '''
-    pass
+
+    
