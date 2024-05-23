@@ -9,12 +9,21 @@ def deck() -> list[tuple]:
     pass
 
 def split(deck, pos: int) -> tuple[list, list]:
+    ''''Split a deck of cards at a given position.
+    Return a tuple containing first and second part of the deck.
+    '''
     pass
 
 def peek(deck: list[tuple]) -> tuple:
+    '''Show top card from the deck.
+    '''
     pass
 
 def draw(deck: list[tuple], random=False) -> tuple:
+    '''Draw a card from the deck.
+    Choose a random card when random=True,
+    otherwise choose top card.
+    '''
     pass
 
 # filter by suit
