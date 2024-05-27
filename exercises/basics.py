@@ -285,20 +285,24 @@ erzeugt und auf der Konsole ausgibt.
 
 Siehe auch https://de.wikipedia.org/wiki/Fizz_buzz
 '''
-def fizzbuzz(n):
-    for i in range(1, n + 1):
-        if i % 3 == 0 and i % 5 == 0:
-            print("FizzBuzz")
-        elif i % 3 == 0:
-            print("Fizz")
-        elif i % 5 == 0:
-            print("Buzz")
-        else:
-            print(i)
+def fizzbuzz(x):
+     for x in range(1, x + 1):
+         if x % 3 == 0 and x % 5 == 0:
+             print("FizzBuzz")
+         elif x % 3 == 0:
+             print("Fizz")
+         elif x % 5 == 0:
+             print("Buzz")
+         else:
+             print(x)
 
-# Aufruf  der Funktion
-fizzbuzz(23)
+# # Aufruf  der Funktion
+fizzbuzz(30)
     
+# FIZZBUZZ funktioniert eigentlich wird in den test aber negativ angezeigt
+
+
+
 
 # recursion
 

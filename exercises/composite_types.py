@@ -28,6 +28,7 @@ for card in deck_of_cards:
     '''
 def split(deck, pos: int): #-> tuple[list, list]:
 
+
     pass
 
 def peek(deck: list[tuple]) -> tuple:
