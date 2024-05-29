@@ -6,10 +6,10 @@ RANKS = [ 'ACE', 'KING', 'QUEEN', 'JACK', 'TEN',
     Each card is a tuple of suit and rank.
     '''
 
-def deck():  #-> list[tuple]:
+def deck()  -> list[tuple]:
     suits = ['CLUBS', 'HEARTS', 'SPADES', 'DIAMONDS']
-    ranks = ['ACE', 'KING', 'QUEEN', 'JACK', 'TEN',
-         'NINE', 'EIGHT', 'SEVEN', 'SIX', 'FIVE', 'FOUR', 'THREE', 'TWO'] 
+    ranks = {'ACE', 'KING', 'QUEEN', 'JACK', 'TEN',
+         'NINE', 'EIGHT', 'SEVEN', 'SIX', 'FIVE', 'FOUR', 'THREE', 'TWO'} 
     
     deck =[(suit, rank) for suit in suits for rank in ranks]
     return deck
@@ -22,19 +22,47 @@ for card in deck_of_cards:
 
     pass
 
-
-    ''''Split a deck of cards at a given position.
+    ''''Split a deck of cards at a given position._______________________________________________
     Return a tuple containing first and second part of the deck.
     '''
-def split(deck, pos: int): #-> tuple[list, list]:
+
+def split(deck, position): #   Teilt das Kartenspiel an der angegebenen Position.
+   
+    first_part = deck[:position]
+    second_part = deck[position:]
+    return (first_part, second_part)
+
+deck = deck()
+position = 21  # zufällige Position zum Aufteilen des Kartenspiels
+
+first_part, second_part = split(deck, position)
+print("_________________________________")
+print("\nErster Teil des Kartenspiels:")
+print(first_part)
+print("___________________________________________________________________")
+print("\nZweiter Teil des Kartenspiels:")
+print(second_part)
+print("______________________________________________________")
+
+pass
 
 
-    pass
+''' Show top card from the deck.____________________________________________________'''
 
 def peek(deck: list[tuple]) -> tuple:
-    '''Show top card from the deck.
-    '''
-    pass
+    if deck:
+        return deck[0]
+    else:
+        return None
+    
+top_card = peek(deck)
+print("die oberste Karte des Kartenspiels ist die :")
+print(top_card)
+print("______________________________________")
+    
+pass
+
+
 
 def draw(deck: list[tuple], random=False) -> tuple:
     '''Draw a card from the deck.
@@ -48,7 +76,10 @@ def draw(deck: list[tuple], random=False) -> tuple:
 
 def follows(card, suit=None, rank=None):
     '''Check whether a card follows a given suit and rank.
+    Prüfen Sie, ob eine Karte einer bestimmten Farbe und einem bestimmten Rang entspricht.
+    zB card  Fach 5 = hearts  und wert??
     '''
+    
     pass
 
 def filter_by(deck: list[tuple], suit=None, rank=None) -> list[tuple]:
@@ -62,5 +93,6 @@ def filter_by(deck: list[tuple], suit=None, rank=None) -> list[tuple]:
 
 def has_card(deck: list[tuple], suit=None, rank=None) -> bool:
     '''Check whether a deck has cards of a given suit and rank.
+    Prüfen Sie, ob ein Deck Karten einer bestimmten Farbe und eines bestimmten Ranges enthält.
     '''
     pass
