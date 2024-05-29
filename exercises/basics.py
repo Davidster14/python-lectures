@@ -51,7 +51,6 @@ def inCelsius(fahrenheit):
 
 
 print (inCelsius(83)) 
-
 print (inCelsius(60)) 
 #Versuch        
 #print(f"{inCelsius}(58) celsius")
@@ -271,7 +270,7 @@ def deckOfCards():
     kartenspiel = [(farbe, wert) for farbe in farben for wert in werte]
     return kartenspiel
 
-# Beispielhafte Nutzung der Funktion
+
 kartenspiel = deckOfCards()
 
 # Ausgabe der Karten
@@ -285,23 +284,22 @@ erzeugt und auf der Konsole ausgibt.
 
 Siehe auch https://de.wikipedia.org/wiki/Fizz_buzz
 '''
-def fizzbuzz(x):
-     for x in range(1, x + 1):
-         if x % 3 == 0 and x % 5 == 0:
+def fizzbuzz(n):
+     for n in range(1, n + 1):
+         if n % 3 == 0 and n % 5 == 0:
              print("FizzBuzz")
-         elif x % 3 == 0:
+         elif n % 3 == 0:
              print("Fizz")
-         elif x % 5 == 0:
+         elif n % 5 == 0:
              print("Buzz")
          else:
-             print(x)
+             print(n)
 
-# # Aufruf  der Funktion
-fizzbuzz(30)
-    
+
 # FIZZBUZZ funktioniert eigentlich wird in den test aber negativ angezeigt
 
-
+fizzbuzz(35)
+    
 
 
 # recursion
